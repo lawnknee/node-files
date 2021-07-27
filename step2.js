@@ -3,7 +3,10 @@
 const fsp = require('fs/promises');
 const axios = require('axios');
 
-/** Reads file at the given path and prints the contents of the file */
+/** Reads file at the given path and 
+ * prints the contents of the file 
+ * */
+
 async function cat(path) {
   try{
     let contents = await fsp.readFile(path, "utf8");
@@ -14,14 +17,17 @@ async function cat(path) {
   }
 }
 
-/** Reads the contents at the given URL and prints it to the console. */
+/** Reads the contents at the given URL and 
+ * prints the contents to the console. 
+ * */
+
 async function webCat(URL) {
   try{
     let contents = await axios.get(`${URL}`);
-    console.log(contents.data.slice(0,80), "...");
+    console.log(contents.data);
   } catch(error) {
-  console.log(`Error fetching ${URL}: ${error}`);
-  process.exit(1);
+    console.log(`Error fetching ${URL}: ${error}`);
+    process.exit(1);
   }
 }
 

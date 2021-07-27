@@ -1,7 +1,9 @@
 "use strict"
+
 const fsp = require('fs/promises');
 
 /** Reads file at the given path and prints the contents of the file */
+
 async function cat(path) {
   try{
     let contents = await fsp.readFile(path, "utf8");
